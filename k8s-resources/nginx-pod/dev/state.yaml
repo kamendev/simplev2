@@ -1,1 +1,24 @@
----
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx
+  labels: 
+    component: web
+spec:
+      containers:
+      - name: nginx
+        image: kamendev/simplev3
+        imagePullPolicy: Always
+        command: ["/bin/sh","-c"]
+        args: ["python3 /run.py"]
+        volumeMounts:
+        - mountPath: /var/lib
+          name: nginx-vol-nginx-0
+        - mountPath: /var/www
+          name: nginx-vol-nginx-0
+        - mountPath: /home/linux
+          name: nginx-vol-nginx-0
+      volumes:
+      - name: nginx-vol-nginx-0
+        persistentVolumeClaim:
+          claimName: nginx-vol-nginx-0
