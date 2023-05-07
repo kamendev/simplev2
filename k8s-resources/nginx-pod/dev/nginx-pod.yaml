@@ -1,10 +1,1 @@
-apiVersion: v1
-kind: Pod
-metadata:
-  name: webserver-simplev2
-spec:
-  containers:
-  - name: webserver-simplev2
-    image: kamendev/simplev2:latest
-    ports:
-    - containerPort: 80
+---
